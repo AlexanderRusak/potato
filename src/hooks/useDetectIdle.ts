@@ -1,26 +1,24 @@
 import { useEffect, useState } from 'react';
 import { useAppDispatch } from '../store/hooks/useAppDispatch';
-
 import { idleMode } from '../store/reducers/modeReducer';
-import { useAppSelector } from '../store/hooks/useAppSelector';
-import { selectCount } from '../store/reselect/counterSelector';
-import { IDLE_TIMEOUT } from '../settings';
+import { DEFAULT_COUNT_STATE, IDLE_TIMEOUT } from '../settings';
+import { useGameState } from './useGameState';
 
 export const useDetectIdle = (timeout = IDLE_TIMEOUT): void => {
-  const [lastCount, setLastCount] = useState(0);
-  const count = useAppSelector(selectCount);
+  const [previousCount, setPreviousCount] = useState(DEFAULT_COUNT_STATE);
+  const { count, isIdle } = useGameState()
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     let timerId: ReturnType<typeof setTimeout> | null = null;
 
     const handleIdle = (): void => {
-      dispatch(idleMode(true));
+      isIdle || dispatch(idleMode(true));
     };
 
     const handleUpdate = (): void => {
-      if (count !== lastCount) {
-        setLastCount(count);
+      if (count !== previousCount) {
+        setPreviousCount(count);
         if (timerId) {
           clearTimeout(timerId);
         }
@@ -38,6 +36,5 @@ export const useDetectIdle = (timeout = IDLE_TIMEOUT): void => {
         clearTimeout(timerId);
       }
     };
-  }, [timeout, dispatch, lastCount, count]);
-
+  }, [timeout, dispatch, previousCount, count, isIdle]);
 };

@@ -7,7 +7,8 @@ export const getModeState = (state: RootState): ModeState => state.mode;
 export const selectMode = createSelector(
   getModeState,
   (modeState) => ({
-    doubleModeTime: modeState.doubleModeTime,
+    extraModeTime: modeState.extraModeTime,
+    isExtraModeEnabled: modeState.isExtraModeEnabled,
     isIdle: modeState.isIdle
   })
 );

@@ -1,0 +1,9 @@
+.containerExtra {
+  display: flex;
+  justify-content: center;
+}
+
+.containerExtra span {
+  font-size: 80px;
+  font-weight: 600;
+}

@@ -1,0 +1,6 @@
+.achievmnets {
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}

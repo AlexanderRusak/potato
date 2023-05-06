@@ -3,7 +3,7 @@ import { useAppDispatch } from '../store/hooks/useAppDispatch';
 import { useAppSelector } from '../store/hooks/useAppSelector';
 import { decrement } from '../store/reducers/counterReducer';
 import { selectCount } from '../store/reselect/counterSelector';
-import { IDLE_DECREMENT_TIMEOUT } from '../settings';
+import { DEFAULT_COUNT_STATE, DEFAULT_DECREMENT_VALUE, IDLE_DECREMENT_TIMEOUT } from '../settings';
 import { selectMode } from '../store/reselect/modeSelector';
 
 export const useIdleDecrement = (): void => {
@@ -16,12 +16,12 @@ export const useIdleDecrement = (): void => {
 
     if (isIdle) {
       timerId = setInterval(() => {
-        if (count === 1) {
-          dispatch(decrement(1));
-        } else if (count === 0) {
+        if (count === DEFAULT_COUNT_STATE) {
           clearInterval(timerId as NodeJS.Timeout);
+        } else if (count < DEFAULT_DECREMENT_VALUE) {
+          dispatch(decrement(count));
         } else {
-          dispatch(decrement(2));
+          dispatch(decrement(DEFAULT_DECREMENT_VALUE));
         }
       }, IDLE_DECREMENT_TIMEOUT);
     }

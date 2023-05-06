@@ -14,7 +14,7 @@ export const useAchievementsHandler = (): void => {
 
   useEffect(() => {
     const achieve = getAchievedNumber(counter)
-    achieve ? dispatch(addAchievement(achieve)) : null
+    achieve && dispatch(addAchievement(achieve))
 
   }, [counter, achievements.length, dispatch]);
 };

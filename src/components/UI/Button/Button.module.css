@@ -1,6 +1,23 @@
 .button {
+  width: 397px;
+  height: 340px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  border: none;
+  background: url('../../../../public/static/potato.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  cursor: pointer;
+  flex: 1;
+  outline: none;
+}
+
+.buttonIdle {
+  background: url('../../../../public/static/potato-idle.png');
 }

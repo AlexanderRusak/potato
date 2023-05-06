@@ -2,21 +2,24 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { DEFAULT_EXTRA_TIMEOUT } from '../../settings';
 
 export interface ModeState {
-  doubleModeTime: number;
-  isIdle: boolean;
+  extraModeTime: number;
+  isExtraModeEnabled: boolean;
+  isIdle: boolean
 }
 
 const initialState: ModeState = {
-  doubleModeTime: DEFAULT_EXTRA_TIMEOUT,
-  isIdle: false
+  extraModeTime: DEFAULT_EXTRA_TIMEOUT,
+  isIdle: false,
+  isExtraModeEnabled: false
 };
 
 const modeSlice = createSlice({
   name: 'mode',
   initialState,
   reducers: {
-    doubleMode: (state, action: PayloadAction<number>) => {
-      state.doubleModeTime = action.payload;
+    extraTime: (state, action: PayloadAction<number>) => {
+      state.isExtraModeEnabled = !!action.payload
+      state.extraModeTime = action.payload;
     },
     idleMode: (state, action: PayloadAction<boolean>) => {
       state.isIdle = action.payload;
@@ -24,6 +27,6 @@ const modeSlice = createSlice({
   },
 });
 
-export const { doubleMode, idleMode } = modeSlice.actions;
+export const { extraTime, idleMode } = modeSlice.actions;
 
 export default modeSlice.reducer;

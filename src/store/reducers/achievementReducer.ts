@@ -15,12 +15,9 @@ const achievementsSlice = createSlice({
     addAchievement: (state, action: PayloadAction<number>) => {
       state.achievements.push(action.payload);
     },
-    addAchievementInit: (state, action: PayloadAction<number[]>) => {
-      state.achievements = action.payload;
-    },
   },
 });
 
-export const { addAchievement, addAchievementInit } = achievementsSlice.actions;
+export const { addAchievement } = achievementsSlice.actions;
 
 export default achievementsSlice.reducer;

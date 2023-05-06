@@ -1,28 +1,31 @@
 import React from 'react'
 import { Button } from '../UI/Button/Button';
-import styles from './Game.module.css';
-import { DoubleMode } from '../DoubleMode/DoubleMode';
-import { useGameSelector } from '../../hooks/useGameSelector';
+import { useGameState } from '../../hooks/useGameState';
 import { useDetectIdle } from '../../hooks/useDetectIdle';
 import { useIdleDecrement } from '../../hooks/useIdleDecrement';
 import { useAchievementsHandler } from '../../hooks/useAchievementsHandler';
 import { Achievements } from '../Achievements/Achievements';
+import { ScoreTitle } from '../UI/ScoreTitle/ScoreTitle';
+import { ExtraMode } from '../../components/ExtraMode/ExtraMode';
+import { useExtraMode } from '../../hooks/useExtraMode';
+import styles from './Game.module.css';
 
 
 export const Game = (): JSX.Element => {
-  const { count, doubleModeTime, isIdle } = useGameSelector();
+  const { count, isIdle } = useGameState();
 
   useDetectIdle();
   useIdleDecrement();
   useAchievementsHandler();
+  useExtraMode();
 
   return (
     <div className={styles.game}>
       <Achievements />
-      <h1>{count}</h1>
-      {isIdle ? <h1>Idle</h1> : null}
-      {doubleModeTime ? <DoubleMode timer={doubleModeTime} /> : null}
-      <Button />
+      <ExtraMode />
+      <Button>
+        <ScoreTitle score={count} isIdle={isIdle} />
+      </Button>
     </div>
   );
 };
