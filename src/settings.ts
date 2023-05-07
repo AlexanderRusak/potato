@@ -11,7 +11,7 @@ export const DEFAULT_EXTRA_TIMEOUT_DECREMENT = 1 // Devrement extra mode seconds
 
 
 export const CHANCE_VALUE = 0.1 // Chance for extra mode
-export const CAHNCE_TIME_MAX = 10; //Max seconds in extra mode
+export const CHANCE_TIME_MAX = 10; //Max seconds in extra mode
 export const THROTTLED_LIMIT = 250; // 4 clicks in sec  1000 / 250 = 4
 
 export const achievements = [10, 20, 50, 100, 200, 500, 666, 1000, 4815162342];

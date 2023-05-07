@@ -12,5 +12,6 @@ export const AchievementImage = ({ alt, src }: AchievementImageProps): JSX.Eleme
     className={classes.image}
     src={src}
     alt={alt.toString()}
+    data-testid='achievement-image'
   />
 }

@@ -1,7 +1,7 @@
-import { CAHNCE_TIME_MAX } from '../settings';
+import { CHANCE_TIME_MAX } from '../settings';
 import { achievements } from '../settings'
 
-export const calculateRandomTime = (): number => Math.floor(Math.random() * CAHNCE_TIME_MAX) + 1;
+export const calculateRandomTime = (): number => Math.floor(Math.random() * CHANCE_TIME_MAX) + 1;
 
 export const getAchievedNumber = (counter: number): number | undefined => {
   const achieved = achievements.find((a) => counter >= a);
