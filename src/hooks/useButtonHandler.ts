@@ -20,6 +20,7 @@ export const useButtonHandler = (): ButtonHandlerProps => {
     const randomNum = Math.random();
     if (randomNum < CHANCE_VALUE) {
       !isExtraModeEnabled && dispatch(extraTime(calculateRandomTime()));
+      dispatch(increment(DEFAULT_INCREMENT_VALUE))
     } else {
       dispatch(increment(extraModeTime ? EXTRA_INCREMENT : DEFAULT_INCREMENT_VALUE));
     }

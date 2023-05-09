@@ -11,3 +11,17 @@ export const getAchievedNumber = (counter: number): number | undefined => {
   }
   return achieved;
 };
+
+
+export const updateScoreInLocalStorage = (score: number): void => {
+  localStorage.setItem('score', String(score));
+}
+
+export const getScoreFromLocalStorage = (): number | null => {
+  const scoreStr = localStorage.getItem('score');
+  return scoreStr ? Number.parseInt(scoreStr, 10) : null;
+}
+
+export const removeFromFromLocalStorage = (): void => {
+  localStorage.removeItem('score');
+}

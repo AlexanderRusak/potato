@@ -18,6 +18,7 @@ describe('useGameState', () => {
       .mockReturnValueOnce({ isIdle: true });
 
     const { result } = renderHook(() => useGameState());
+    /*   console.log(result.current); */
 
     expect(result.current.count).toEqual(5);
     expect(result.current.isIdle).toEqual(true);

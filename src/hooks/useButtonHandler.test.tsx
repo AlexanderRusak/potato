@@ -22,7 +22,7 @@ describe('useButtonHandler', () => {
     jest.clearAllMocks();
   });
 
-  test('handleClick dispatches extraTime action when random number is less than CHANCE_VALUE and extra mode is not enabled', () => {
+  test('it should handleClick dispatches extraTime action when random number is less than CHANCE_VALUE and extra mode is not enabled', () => {
     mockUseSelector.mockReturnValueOnce({ extraModeTime: 0, isIdle: false, isExtraModeEnabled: false });
     calculateRandomTimeMock.mockReturnValueOnce(10);
 

@@ -22,7 +22,7 @@ describe('useExtraMode', () => {
     mockUseDispatch.mockClear();
   });
 
-  it('should not start a timer if extra mode is not enabled', () => {
+  it('it should not start a timer if extra mode is not enabled', () => {
     mockUseSelector.mockReturnValue({
       extraModeTime: 10000,
       isExtraModeEnabled: false,
@@ -35,7 +35,7 @@ describe('useExtraMode', () => {
     expect(mockExtraTime).not.toHaveBeenCalled();
   });
 
-  it('should start a timer and dispatch an extraTime action every TIMER_COUNTDOWN_VALUE milliseconds', () => {
+  it('it should start a timer and dispatch an extraTime action every TIMER_COUNTDOWN_VALUE milliseconds', () => {
     jest.useFakeTimers();
 
     mockUseSelector.mockReturnValue({

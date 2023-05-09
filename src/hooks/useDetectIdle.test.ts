@@ -18,7 +18,7 @@ describe('useDetectIdle', () => {
     jest.clearAllMocks();
   });
 
-  test('should not dispatch idleMode action before timeout', () => {
+  test('it should not dispatch idleMode action before timeout', () => {
     renderHook(() => useDetectIdle());
     expect(mockUseDispatch).not.toHaveBeenCalled();
   });
