@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/static/css/main.58936a3c.css",
+    "main.js": "/static/js/main.058b51c7.js",
+    "static/media/potato.png": "/static/media/potato.35ec10e85cdd9239457c.png",
+    "static/media/potato-idle.png": "/static/media/potato-idle.eef0e0604e031a380bc6.png",
+    "index.html": "/index.html",
+    "main.58936a3c.css.map": "/static/css/main.58936a3c.css.map",
+    "main.058b51c7.js.map": "/static/js/main.058b51c7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.58936a3c.css",
+    "static/js/main.058b51c7.js"
+  ]
+}
